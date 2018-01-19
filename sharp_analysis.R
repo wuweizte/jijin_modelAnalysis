@@ -1,8 +1,8 @@
 #### Author Comment Part
-# modified on 2016-12-20
+# modified on 2018-1-19
 
 #### File Descriptiong Part
-# 代码目的：用于比较私募排排网提供的基金收益率信息
+# 代码目的：基于已经生成的基金对数收益率信息，计算夏普指数以及总收益
 
 #### Library Quoting Part
 rm(list = ls())
@@ -12,7 +12,6 @@ library(dplyr, warn.conflicts = FALSE)
 library(sca)
 
 #### Source files inputting Part
-setwd("D:\\MyR\\jijin_modelAnalysis")
 
 
 
@@ -22,6 +21,7 @@ setwd("D:\\MyR\\jijin_modelAnalysis")
 
 
 ######Execution Part
+setwd("D:\\MyR\\jijin_modelAnalysis")
 
 fund.return <- read.csv("result.csv", stringsAsFactors = FALSE)
 row.names(fund.return) <- fund.return[,1]
@@ -45,4 +45,4 @@ df.sharp.result <- df.sharp.result[order(df.sharp.result$sharp, decreasing = TRU
 
 colnames(df.sharp.result) <- c("夏普比例\n(2015-10 ~ 2017-12)", "总收益率\n(2015-10 ~ 2017-12)")
 
-write.csv(df.sharp.result, "df.sharp.result.csv")
+# write.csv(df.sharp.result, "df.sharp.result.csv")

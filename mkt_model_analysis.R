@@ -1,5 +1,5 @@
 #### Author Comment Part
-# modified on 2016-12-20
+# modified on 2018-1-19
 
 #### File Descriptiong Part
 # 代码目的：用于比较私募排排网提供的基金收益率信息
@@ -14,7 +14,6 @@ library(portes)
 library(forecast)
 
 #### Source files inputting Part
-setwd("D:\\MyR\\jijin_modelAnalysis")
 
 
 #### Function Definition Part
@@ -23,11 +22,14 @@ setwd("D:\\MyR\\jijin_modelAnalysis")
 
 
 ######Execution Part
+setwd("D:\\MyR\\jijin_modelAnalysis")
+
 
 fund.return <- read.csv("result.csv", stringsAsFactors = FALSE)
 # row.names(fund.return) <- fund.return[,1]
 fund.return <- ts(fund.return[,-1], start = c(2015,10), frequency = 12)
 
+window(fund.return[,colnames(fund.return) == "赤子之心价值"], start = c(2017,1) )
 
 huobililv <- read.csv("huobililv.csv", stringsAsFactors = FALSE)
 month.label <- huobililv[,1]
